@@ -1,0 +1,5 @@
+id,name,sequence,is_vat,description,country_id/id
+l10n_base_latam_ve.it_vat,RIF,10,TRUE,RIF,base.ve
+l10n_base_latam_ve.it_fid,Cedula Extranjera,50,,Cedula Extranjera,base.ve
+l10n_base_latam_ve.it_pass,Pasaporte,60,,Pasaporte,base.ve
+

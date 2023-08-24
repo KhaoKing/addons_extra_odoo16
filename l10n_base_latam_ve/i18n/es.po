@@ -1,0 +1,114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_base_latam_ve
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-22 19:32+0000\n"
+"PO-Revision-Date: 2023-08-22 19:32+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__partner_name
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__partner_name
+msgid "Client"
+msgstr "Cliente"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model,name:l10n_base_latam_ve.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_bank_statement_line__country_id
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__country_id
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__display_name
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_l10n_latam_identification_type__display_name
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: l10n_base_latam_ve
+#: model:ir.actions.server,name:l10n_base_latam_ve.action_get_information
+msgid "Get Information Contact"
+msgstr "Actualizar Información del Cliente"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__id
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_l10n_latam_identification_type__id
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_res_partner__id
+msgid "ID"
+msgstr "Identificación"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model,name:l10n_base_latam_ve.model_l10n_latam_identification_type
+msgid "Identification Types"
+msgstr "Tipos de Identificación"
+
+#. module: l10n_base_latam_ve
+#: model_terms:ir.ui.view,arch_db:l10n_base_latam_ve.inherited_model_view_form_account
+msgid "Information Aditional Client"
+msgstr "Información Adicional del Cliente"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model,name:l10n_base_latam_ve.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move____last_update
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_l10n_latam_identification_type____last_update
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: l10n_base_latam_ve
+#: code:addons/addons_extra/l10n_base_latam_ve/models/account_move.py:0
+#: code:addons/l10n_base_latam_ve/models/account_move.py:0
+#, python-format
+msgid ""
+"Ops! This client doesn't have an Address or VAT defined. Check the "
+"information of Contact"
+msgstr ""
+"Ops! Este cliente no tiene una Dirección o RIF definidos. Revise la "
+"información del contacto."
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_bank_statement_line__phone_number
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__phone_number
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__phone_number
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_bank_statement_line__street
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__street
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__street
+msgid "Street"
+msgstr "Calle"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_bank_statement_line__street2
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__street2
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__street2
+msgid "Street 2"
+msgstr "Calle 2"
+
+#. module: l10n_base_latam_ve
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_bank_statement_line__vat
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_move__vat
+#: model:ir.model.fields,field_description:l10n_base_latam_ve.field_account_payment__vat
+msgid "VAT"
+msgstr "RIF"

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <delete model="l10n_latam.identification.type" search="[('id','in',[ref('l10n_latam_base.it_vat'), ref('l10n_latam_base.it_pass'), ref('l10n_latam_base.it_fid')])]"/>
+
+    </data>
+</odoo>

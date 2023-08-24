@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherited_model_view_form_account" model="ir.ui.view">
+            <field name="name">inherited_model_view_form_sale</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/group[@id='other_tab_group']" position="inside">
+                    <group string='Information Aditional Client'>
+                        <field name="partner_name"/>
+                        <field name="street"/>
+                        <field name="street2"/>
+                        <field name="phone_number"/>
+                        <field name="country_id"/>
+                        <field name="vat"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.actions.server" id="action_get_information">
+            <field name="name">Get Information Contact</field>
+            <field name="model_id" ref="model_account_move"/>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">record._onchange_contact_info()</field>
+        </record>
+    </data>
+</odoo> 
