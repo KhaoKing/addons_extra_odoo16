@@ -26,4 +26,5 @@
         'data/l10n_latam.identification.type.csv',
         'views/account_move_view.xml'
     ],
+    'license': 'OPL-1'
 }
