@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>        
+    <template id="redirect_form">
+        <script type="text/javascript" src="/payment_banesco/static/src/js/loading.js"></script>
+    </template>
+</odoo>

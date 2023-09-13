@@ -26,10 +26,25 @@ class PaymentProvider(models.Model):
         """ Override of `payment` to enable additional features. """
         super()._compute_feature_support_fields()
         self.filtered(lambda p: p.code == 'banesco').update({
-            'support_express_checkout': True,
             'support_manual_capture': True,
             'support_refund': 'partial',
             'support_tokenization': True,
         })
+
+    def _banesco_get_api_url(self):
+        """ Return the API URL according to the state.
+
+        Note: self.ensure_one()
+
+        :return: The API URL
+        :rtype: str
+        """
+        self.ensure_one()
+        if self.state == 'enabled':
+            return "https://www.youtube.com/"
+        else:
+            return "https://www.youtube.com/"
+
+    
 
     
