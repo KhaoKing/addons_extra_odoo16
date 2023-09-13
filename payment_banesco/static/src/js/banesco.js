@@ -17,21 +17,12 @@ const BanescoPayment = {
      */
     _processRedirectPayment: function (code, providerId, processingValues) { 
         const BanescoApi = require('tax_customer.receiptPaymentBanesco');
-        console.log ("BanescoApi")
-        console.log (BanescoApi)
-        console.log ("BanescoApi")
-        console.log ("code")
-        console.log (code)
-        console.log ("code")
-        console.log ("BanescoApi")
-        console.log (providerId)
-        console.log ("BanescoApi")
         if (code !== 'banesco') {
             return this._super(...arguments);
         }
         //Valores que se le pasan a la funcion para su funcionamiento//
         let apikey = processingValues.banesco_API_key
-        let valor1 = 82232985; //---- cedula del pagador
+        let valor1 = ""; //---- cedula del pagador
         let valor2 = processingValues.amount //---- monto
         let valor3 = "mundo"; //---- Campo dinámico
         let valor4 = processingValues.reference; //---- ID de la transacción
@@ -49,10 +40,19 @@ const BanescoPayment = {
         params += "&apikey=" + apikey;
         params += "&firma=" + firma;
         var url="https://qa-botondepago.banescopagos.com";
-        var href=url+params;
         // ----------------------------------------------------------------//
         // BanescoApi.Banesco_boton(url, valor1, valor2, valor4, valor5, valor5, apikey, firma, '')
-        location.href  = href;
+        BanescoApi.Banesco_open_win(url, 
+                                    valor1, 
+                                    valor2, 
+                                    valor4, 
+                                    valor5, 
+                                    valor5, 
+                                    apikey, 
+                                    firma, 
+                                    1)
+        // Banesco_open_win(url, cedula, monto, idtramite, comprobante, concepto, apikey, firma, tipo)
+        // location.href  = href;
         //-----------------------------------//
         
         // async function hmacSha256(message, secret) {

@@ -31,7 +31,6 @@ class PaymentTransaction(models.Model):
             sign = (f"{api_key + amount_key + field_dinamic + id_reference}")
             signature = hmac.new(secret_key.encode(), sign.encode(), hashlib.sha256).hexdigest()
             return {
-                'api_url': self.provider_id._banesco_get_api_url(),
                 'banesco_API_key': api_key,
                 'banesco_secret_key': secret_key,
                 'sign':signature

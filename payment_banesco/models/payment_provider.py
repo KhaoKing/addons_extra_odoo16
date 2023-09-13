@@ -30,21 +30,3 @@ class PaymentProvider(models.Model):
             'support_refund': 'partial',
             'support_tokenization': True,
         })
-
-    def _banesco_get_api_url(self):
-        """ Return the API URL according to the state.
-
-        Note: self.ensure_one()
-
-        :return: The API URL
-        :rtype: str
-        """
-        self.ensure_one()
-        if self.state == 'enabled':
-            return "https://www.youtube.com/"
-        else:
-            return "https://www.youtube.com/"
-
-    
-
-    
