@@ -171,7 +171,7 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
         }
         else {
             window.addEventListener("message", Banesco_Cancelar, false);
-            params = "cedula=" + cedula;
+            var params = "cedula=" + cedula;
             params += "&firma=" + firma;
             params += "&monto=" + monto;
             params += "&idtramite=" + idtramite;
