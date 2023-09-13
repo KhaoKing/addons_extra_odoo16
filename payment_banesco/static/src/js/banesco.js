@@ -24,7 +24,7 @@ const BanescoPayment = {
         let apikey = processingValues.banesco_API_key
         let valor1 = ""; //---- cedula del pagador
         let valor2 = processingValues.amount //---- monto
-        let valor3 = "mundo"; //---- Campo dinámico
+        let valor3 = ""; //---- Campo dinámico
         let valor4 = processingValues.reference; //---- ID de la transacción
         let valor5 = processingValues.reference+'fecha'; //---- Descripción o concepto del trámite
         // Este valor será proporcionado por el banco junto con el ApiKey
