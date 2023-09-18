@@ -28,7 +28,7 @@ const BanescoPayment = {
         let valor3 = ''; //Campo Dinamico, es un vacio. (Campo OPCIONAL)
         let valor4 = processingValues.reference; //ID de la transacción
         let valor5 = ''; //Descripción o concepto del trámite
-        let firma = processingValues.sign
+        let firma = processingValues.sign //Firma, la cual esta siendo hecha en el Backend.
         var url="https://qa-botondepago.banescopagos.com";
         // ----------------------------------------------------------------//
         // BanescoApi.Banesco_boton(url, valor1, valor2, valor4, valor5, valor5, apikey, firma, '')
@@ -41,6 +41,7 @@ const BanescoPayment = {
                                     apikey, 
                                     firma, 
                                     1)
+        //Recuerda que los valores, falta corregir como enviarlos correctamente.
         //-----------------------------------//
     },
 };
