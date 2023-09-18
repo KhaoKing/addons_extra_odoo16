@@ -9,13 +9,12 @@
                 'payment'],
     'data': [
         'views/views_banesco.xml',
-        # 'views/views_template_banesco.xml',
         'data/banesco_template_data.xml',
     ],
     'assets': {
         'web.assets_frontend': [
             'payment_banesco/static/src/js/loading.js',
-            'payment_banesco/static/src/js/banesco_or.js',
+            'payment_banesco/static/src/js/banesco_original.js',
             'payment_banesco/static/src/js/banesco.js',
 
         ],

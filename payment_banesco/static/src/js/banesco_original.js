@@ -2,21 +2,21 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
     'use strict';
     var ajax = require('web.ajax');
 
-    // const Banesco_body = document.querySelector('body');
-    // const Banesco_overlayDiv = document.createElement('div');
-    // let Banesco_displayBool = false;
+    const Banesco_body = document.querySelector('body');
+    const Banesco_overlayDiv = document.createElement('div');
+    let Banesco_displayBool = false;
 
-    // Banesco_overlayDiv.style.position = 'fixed';
-    // Banesco_overlayDiv.style.width = '100%';
-    // Banesco_overlayDiv.style.height = '100%';
-    // Banesco_overlayDiv.style.top = '0';
-    // Banesco_overlayDiv.style.left = '0';
-    // Banesco_overlayDiv.style.right = '0';
-    // Banesco_overlayDiv.style.bottom = '0';
-    // Banesco_overlayDiv.style.backgroundColor = 'rgba(0,0,0,0.5)';
-    // Banesco_overlayDiv.style.zIndex = '2';
-    // Banesco_overlayDiv.style.textAlign = '-webkit-center';
-    // Banesco_overlayDiv.style.display = "none";
+    Banesco_overlayDiv.style.position = 'fixed';
+    Banesco_overlayDiv.style.width = '100%';
+    Banesco_overlayDiv.style.height = '100%';
+    Banesco_overlayDiv.style.top = '0';
+    Banesco_overlayDiv.style.left = '0';
+    Banesco_overlayDiv.style.right = '0';
+    Banesco_overlayDiv.style.bottom = '0';
+    Banesco_overlayDiv.style.backgroundColor = 'rgba(0,0,0,0.5)';
+    Banesco_overlayDiv.style.zIndex = '2';
+    Banesco_overlayDiv.style.textAlign = '-webkit-center';
+    Banesco_overlayDiv.style.display = "none";
 
     function Banesco_styleOverlay() {
         const Banesco_contentContainer = document.querySelector('#Banesco_DIVIframe');
@@ -30,22 +30,6 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
         Banesco_contentContainer.style.position = 'fixed';
         Banesco_contentContainer.style.opacity = '1';
     }
-    // Banesco_styleOverlay()
-    // function Banesco_displayOverlay(Banesco_displayBool) {
-    //     if (Banesco_displayBool) {
-    //         Banesco_overlayDiv.innerHTML = `
-    //     <div id="Banesco_container">
-    //         <h1>Hello, World</h1>
-    //         <button onclick="Banesco_overlayDiv.style.display = 'none';" id="close-btn">Cerrar</button>
-    //     </div> 
-    //     `
-    //         Banesco_styleOverlay();
-    //         Banesco_overlayDiv.style.display = 'block';
-    //     } else {
-    //         Banesco_overlayDiv.style.display = 'none';
-    //     }
-    // }
-
 
     function Banesco_Cancelar(event) {
         if (event.origin !== "https://localhost:5001")
@@ -58,21 +42,21 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
         }
     }
 
-    function Banesco_Cancelar2(event) {
+    // function Banesco_Cancelar2(event) {
         
-        var datos=event.data;
-        if (datos != "") {
-            const cmd = datos.split("|");
-            if(cmd.length>=2)
-            {
-            switch(cmd[0]) {
-                case "r":
-                window.location.href=cmd[1];
-                break;			  
-            }
-            }
-        }
-    }
+    //     var datos=event.data;
+    //     if (datos != "") {
+    //         const cmd = datos.split("|");
+    //         if(cmd.length>=2)
+    //         {
+    //         switch(cmd[0]) {
+    //             case "r":
+    //             window.location.href=cmd[1];
+    //             break;			  
+    //         }
+    //         }
+    //     }
+    // }
 
     function Banesco_boton(url, cedula, monto, idtramite, comprobante, concepto, apikey, firma, tipo) {
         if ( idtramite.length <= 32 && comprobante.length <= 22 && concepto.length <= 60 && cedula.length <= 10 && monto.length <= 17 ) {
@@ -86,9 +70,8 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
         };
     }
     function Banesco_open_win(url, cedula, monto, idtramite, comprobante, concepto, apikey, firma, tipo)	 {
-
         if (tipo == 1) {
-            window.addEventListener("message", Banesco_Cancelar2, false);
+            // window.addEventListener("message", Banesco_Cancelar, false);
             let Banesco_window = window.open("Boton de Pago Banesco", "Banesco_Boton", "dialog=yes,status=no,toolbar=no,location=no,menubar=no,scrollbars=no,resizable=no,fullscreen=no,height=" + (screen.height * 0.8) + "px, width = 465px");
             //var loading= _LOADING_;
             var html = "<div style='background-color:#00795354;height:100%;'><div style='top:50%;left:35%;position:absolute;'><img src='data:image/gif;base64, " + _LOADING_ + "' /><br><span>Conectando ...</span></div></div>";
@@ -180,6 +163,7 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
             params += "&apikey=" + apikey;
             params += "&tipo=" + tipo;
             params = "?" + params;
+
             var banesco_div = document.createElement("div");
             banesco_div.setAttribute("id", "Banesco_DIVIframe");
             banesco_div.setAttribute("position", "relative");
@@ -197,7 +181,7 @@ odoo.define('tax_customer.receiptPaymentBanesco', function (require){
 
             banesco_div.appendChild(banesco_iframe);
 
-            //document.body.appendChild(banesco_div);
+            document.body.appendChild(banesco_div);
             document.body.prepend(banesco_div);
             Banesco_styleOverlay();
         }
