@@ -17,8 +17,6 @@ class AccountMove(models.Model):
         if partner_id:
             street = self.partner_id.street
             vat = self.partner_id._get_vat() 
-            print (street)
-            print (vat)   
             if not street or not vat:
                 raise UserError (_("Ops! This client doesn't have an Address or VAT defined. Check the information of Contact"))
             self.write({

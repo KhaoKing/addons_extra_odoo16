@@ -55,15 +55,13 @@ class PaymentTransaction(models.Model):
             return tx
 
         reference = notification_data.get('reference')
-        if not reference:
-            raise ValidationError("Banesco: " + _("Received data with missing reference."))
-
-        tx = self.search([("reference", "=", reference),('provider_code', '=', 'banesco')])
+        tx = self.search([('reference', '=', reference), ('provider_code', '=', 'banesco')])
         if not tx:
             raise ValidationError(
                 "Banesco: " + _("No transaction found matching reference %s.", reference)
-            )  
+            )
         return tx
+
     
     def _process_notification_data(self, notification_data):
         """ Override of `payment` to process the transaction based on Mercado Pago data.
@@ -74,24 +72,13 @@ class PaymentTransaction(models.Model):
         :return: None
         :raise ValidationError: If inconsistent data were received.
         """
-        self.ensure_one()
+        
         super()._process_notification_data(notification_data)
         if self.provider_code != 'banesco':
             return
 
         payment_status = notification_data.get('status')
-        if not payment_status:
-            raise ValidationError("Banesco: " + _("Received data with missing payment status."))
-        # self.provider_reference = payment_status
 
-        '''
-        Esto lo hace el banco, creo que es la URL por donde te enviará la informacion
-        # Verify the notification data.
-        # verified_payment_data = self.provider_id._mercado_pago_make_request(
-        #     f'/v1/payments/{self.provider_reference}', method='GET'
-        # )'''
-
-        payment_status = notification_data.get('status')
         if not payment_status:
             raise ValidationError("Banesco: " + _("Received data with missing status."))
 
