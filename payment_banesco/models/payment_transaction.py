@@ -21,6 +21,10 @@ class PaymentTransaction(models.Model):
     def _get_specific_processing_values(self, processing_values):
         '''Esta funcion sobreescribe el metodo original de _get_specific_processing_values,
         proveniente del modulo de Payment_transaction'''
+        res = super()._get_specific_processing_values(processing_values)
+        if self.provider_code != 'banesco':
+            return res
+
         amount_key = str(self.amount)
         id_reference = self.reference
         field_dinamic = ""
@@ -51,15 +55,26 @@ class PaymentTransaction(models.Model):
         :raise ValidationError: If the data match no transaction.
         """
         tx = super()._get_tx_from_notification_data(provider_code, notification_data)
-        if provider_code != 'banesco' or len(tx) == 1:
+        tx = self.browse(185)
+        print('tx tx tx')
+        print(tx)
+        print('tx tx tx')
+        if provider_code != 'banesco':
             return tx
 
         reference = notification_data.get('reference')
-        tx = self.search([('reference', '=', reference), ('provider_code', '=', 'banesco')])
+        if reference:
+            tx = self.search([('reference', '=', reference), ('provider_code', '=', 'banesco')])
         if not tx:
+
             raise ValidationError(
                 "Banesco: " + _("No transaction found matching reference %s.", reference)
             )
+        print('tx')
+        print('tx')
+        print(tx)
+        print('tx')
+        print('tx')
         return tx
 
     
@@ -77,16 +92,17 @@ class PaymentTransaction(models.Model):
         if self.provider_code != 'banesco':
             return
 
-        payment_status = notification_data.get('status')
+        payment_status = notification_data.get('detalle', {}).get('status', '')
 
         if not payment_status:
             raise ValidationError("Banesco: " + _("Received data with missing status."))
 
-        if payment_status in TRANSACTION_STATUS_MAPPING ['done']:
+        if payment_status in TRANSACTION_STATUS_MAPPING['done']:
+            self._set_authorized()
             self._set_done()
-        elif payment_status in TRANSACTION_STATUS_MAPPING ['error']:
+        elif payment_status in TRANSACTION_STATUS_MAPPING['error']:
             self._set_pending()
-        elif payment_status in TRANSACTION_STATUS_MAPPING ['canceled']:
+        elif payment_status in TRANSACTION_STATUS_MAPPING['canceled']:
             self._set_canceled()
         else:  # Classify unsupported payment status as the `error` tx state.
             _logger.warning(
