@@ -12,11 +12,11 @@ const Banesco_payment = {
      * @override method from payment.payment_form_mixin
      * @private
      * @param {string} code - The code of the payment option
-     * @param {number} providerId - The id of the payment option handling the transaction
+     * @param {number} providerCode- The id of the payment option handling the transaction
      * @param {object} processingValues - The processing values of the transaction
      * @return {object}
      */
-    _processRedirectPayment: function (code, providerId, processingValues) { 
+    _processRedirectPayment: function (code, providerCode, processingValues) { 
         
         if (code == 'banesco') {
             let apikey = processingValues.banesco_API_key; //Api_Key, generada por el banco. (Campo REQUERIDO)
