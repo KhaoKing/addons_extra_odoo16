@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo noupdate="1">
     <record id="payment_provider_banesco" model="payment.provider">
-        <field name="name">Banesco</field>
+        <field name="name">banesco</field>
         <field name="code">banesco</field>
         <field name="display_as">Banesco Pagos</field>
-        <field name="image_128" type="base64" file="payment_banesco/static/description/logo.png"/>
+        <field name="image_128"
+               type="base64"
+               file="payment_banesco/static/description/logo.png"/>
+        <field name="module_id" ref="base.module_payment_banesco"/>
         <field name="payment_icon_ids"
-            eval="[(6, 0, [
-                ref('payment.payment_icon_cc_maestro'),
-                ref('payment.payment_icon_cc_mastercard'),
-                ref('payment.payment_icon_cc_visa')
-            ])]"/>
-        <field name="banesco_secret_key">7kdRqw8h55pClC2wn0OrivM8ByfhDQR6</field>
+               eval="[(6, 0, [
+                   ref('payment.payment_icon_cc_maestro'),
+                   ref('payment.payment_icon_cc_mastercard'),
+                   ref('payment.payment_icon_cc_visa'),
+               ])]"/>
         <field name="banesco_API_key">KAmOVusb3RZ7YOOmYCh73oYN1F5yuoZk</field>
+        <field name="banesco_secret_key">7kdRqw8h55pClC2wn0OrivM8ByfhDQR6</field>
     </record>
 </odoo>

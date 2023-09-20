@@ -8,15 +8,14 @@
     'depends': ['base_setup',
                 'payment'],
     'data': [
-        'views/views_banesco.xml',
         'data/banesco_template_data.xml',
+        'views/views_banesco.xml',
     ],
     'assets': {
         'web.assets_frontend': [
             'payment_banesco/static/src/js/loading.js',
             'payment_banesco/static/src/js/banesco_original.js',
             'payment_banesco/static/src/js/banesco.js',
-
         ],
     },
     'license': 'OPL-1'

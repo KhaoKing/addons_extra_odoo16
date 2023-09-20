@@ -1,16 +1,4 @@
-
-import logging
-import uuid
-
-import requests
-from werkzeug.urls import url_encode, url_join, url_parse
-
 from odoo import _, api, fields, models
-from odoo.exceptions import UserError, ValidationError
-
-from odoo.addons.payment_banesco import utils as banesco_utils
-
-_logger = logging.getLogger(__name__)
 
 class PaymentProvider(models.Model):
     _inherit = 'payment.provider'

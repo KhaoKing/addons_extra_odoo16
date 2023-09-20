@@ -55,10 +55,6 @@ class PaymentTransaction(models.Model):
         :raise ValidationError: If the data match no transaction.
         """
         tx = super()._get_tx_from_notification_data(provider_code, notification_data)
-        tx = self.browse(185)
-        print('tx tx tx')
-        print(tx)
-        print('tx tx tx')
         if provider_code != 'banesco':
             return tx
 
@@ -70,11 +66,6 @@ class PaymentTransaction(models.Model):
             raise ValidationError(
                 "Banesco: " + _("No transaction found matching reference %s.", reference)
             )
-        print('tx')
-        print('tx')
-        print(tx)
-        print('tx')
-        print('tx')
         return tx
 
     

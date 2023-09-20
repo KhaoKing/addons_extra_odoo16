@@ -8,8 +8,8 @@
         <field name="arch" type="xml">
             <group name="provider_credentials" position='inside'>
                 <group attrs="{'invisible': [('code', '!=', 'banesco')]}">
-                    <field name="banesco_secret_key" password="True" attrs="{'required':[ ('code', '=', 'banesco'), ('state', '!=', 'disabled')]}"/>
                     <field name="banesco_API_key" password="True" attrs="{'required':[ ('code', '=', 'banesco'), ('state', '!=', 'disabled')]}"/>
+                    <field name="banesco_secret_key" password="True" attrs="{'required':[ ('code', '=', 'banesco'), ('state', '!=', 'disabled')]}"/>
                 </group>
             </group>
         </field>

@@ -12,9 +12,9 @@ _logger = logging.getLogger(__name__)
 class BanescoController(http.Controller):
     _return_url = '/payment/banesco/return' #Ruta para la redireccion de datos, que es enviada por Banesco.
 
-    @http.route(_return_url, type='json', auth='public', csrf=False)
+    @http.route(_return_url, type='http', auth='public', csrf=False)
     def banesco_return_from_checkout(self, **data):
-        data = request.dispatcher.jsonrequest
+        data = request.get_json_data()
         _logger.info("handling redirection from banesco with data:\n%s", pprint.pformat(data))
         if data:  # The customer has canceled or paid then clicked on "Return to Merchant"
             tx_sudo = request.env['payment.transaction'].sudo()._get_tx_from_notification_data(
